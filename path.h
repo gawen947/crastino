@@ -1,5 +1,5 @@
 /* File: path.h
-   Time-stamp: <2013-01-23 03:28:50 gawen>
+   Time-stamp: <2013-01-23 16:18:11 gawen>
 
    Copyright (C) 2013 David Hauweele <david@hauweele.net>
 
@@ -39,7 +39,7 @@ const char * configuration_file(const char * file);
 /* Free the memory that was allocated for the paths. */
 void free_path(void);
 
-/* Check if a directory is exist and create it otherwise.
+/* Check if a directory exists and create it otherwise.
    If it isn't accessible for some other reason it will
    report an error an abort execution. */
 void creat_directory(const char *dir);
