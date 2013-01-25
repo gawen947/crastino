@@ -16,8 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with this program. If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef _BST_H_
-#define _BST_H_
+#ifndef _BSORT_H_
+#define _BSORT_H_
 
 typedef struct bsort * bsort_t;
 
@@ -52,4 +52,4 @@ void bsort_delete(bsort_t bsort, void *data);
    deep tree. */
 void bsort_destroy(bsort_t bsort);
 
-#endif /* _BST_H_ */
+#endif /* _BSORT_H_ */
