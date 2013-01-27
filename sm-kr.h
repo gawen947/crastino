@@ -1,5 +1,5 @@
 /* File: sm-kr.h
-   Time-stamp: <2013-01-27 16:08:09 gawen>
+   Time-stamp: <2013-01-27 16:17:31 gawen>
 
    Copyright (C) 2013 David Hauweele <david@hauweele.net>
 
@@ -15,6 +15,9 @@
 
    You should have received a copy of the GNU General Public License
    along with this program. If not, see <http://www.gnu.org/licenses/>. */
+
+#ifndef _SM_KR_H_
+#define _SM_KR_H_
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -41,3 +44,5 @@ int kr_matchall(kr_t kr, const char *text, size_t size);
 
 /* Destroy the string matching context. */
 void kr_destroy(kr_t kr);
+
+#endif /* _SM_KR_H_ */
