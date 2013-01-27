@@ -113,7 +113,7 @@ int kr_matchall(kr_t kr, const char *text, size_t size)
   len  = kr->len;
   hash = kr->hash_text;
 
-  for(i = kr->index ; i < size - len + 1 ; i++) {
+  for(i = kr->index ; i < size - len ; i++) {
     hash -= (text[i-1] << len);
     hash  = (hash << 1) + text[i+len];
 
