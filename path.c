@@ -1,5 +1,4 @@
 /* File: path.c
-   Time-stamp: <2013-01-23 03:15:07 gawen>
 
    Copyright (C) 2013 David Hauweele <david@hauweele.net>
 

@@ -1,5 +1,4 @@
 /* File: bsort.h
-   Time-stamp: <2013-01-25 03:07:34 gawen>
 
    Copyright (C) 2013 David Hauweele <david@hauweele.net>
 

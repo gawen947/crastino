@@ -1,5 +1,4 @@
 /* File: task.c
-   Time-stamp: <2013-01-23 18:21:36 gawen>
 
    Copyright (C) 2013 David Hauweele <david@hauweele.net>
 

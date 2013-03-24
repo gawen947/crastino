@@ -1,5 +1,4 @@
 /* File: common.c
-   Time-stamp: <2013-01-23 02:45:42 gawen>
 
    Copyright (C) 2013 David Hauweele <david@hauweele.net>
 
