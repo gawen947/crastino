@@ -1,26 +1,29 @@
-/* File: iobuf.h
+/* Copyright (c) 2012-2016, David Hauweele <david@hauweele.net>
+   All rights reserved.
 
-   Copyright (C) 2012-2013 David Hauweele <david@hauweele.net>
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
 
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
+    1. Redistributions of source code must retain the above copyright notice, this
+       list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright notice,
+       this list of conditions and the following disclaimer in the documentation
+       and/or other materials provided with the distribution.
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program. If not, see <http://www.gnu.org/licenses/>. */
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+   ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+   WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+   ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+   (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+   ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 #ifndef _IOBUF_H_
 #define _IOBUF_H_
-
-#ifndef __FreeBSD__
-# define _LARGEFILE64_SOURCE
-#endif /* __FreeBSD__ */
 
 #include <sys/types.h>
 #include <unistd.h>
@@ -63,7 +66,7 @@ ssize_t iobuf_read(iofile_t file, void *buf, size_t count);
    the kernel buffers are not flushed so you may need to sync manually.
    Unlike the standard fflush function this function does not discards
    the read buffer and only affects the write buffer. */
-ssize_t iobuf_flush(iofile_t file);
+int iobuf_flush(iofile_t file);
 
 /* Close a stream. This function also take care of flushing the buffers
    when needed. */
@@ -83,7 +86,7 @@ int iobuf_putc(char c, iofile_t file);
    user may ensure that every seek will be comprised in this interval. */
 off_t iobuf_lseek(iofile_t file, off_t offset, int whence);
 
-#ifndef __FreeBSD__
+#if !defined(__FreeBSD__) && defined(_LARGEFILE64_SOURCE)
 /* The iobuf_lseek64() function repositions the offset of the open stream
    associated with the file argument to the argument offset according to the
    directive whence. For details see lseek64(). There are however two
@@ -94,6 +97,6 @@ off_t iobuf_lseek(iofile_t file, off_t offset, int whence);
    MIN_LSEEK64_OFFSET and MAX_LSEEK64_OFFSET. These values are large enough so
    the user may ensure that every seek will be comprised in this interval. */
 off64_t iobuf_lseek64(iofile_t file, off64_t offset, int whence);
-#endif /* __FreeBSD__ */
+#endif
 
 #endif /* _IOBUF_H_ */
