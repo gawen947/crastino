@@ -35,7 +35,7 @@ struct bsort {
 };
 
 bsort_t bsort_create(int  (*compare)(const void *, const void *),
-                 void (*destroy)(void *))
+                     void (*destroy)(void *))
 {
   struct bsort *bsort = malloc(sizeof(struct bsort));
 
